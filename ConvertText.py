@@ -73,6 +73,9 @@ def million_phrase(million, thousand, hundreds, text):
 
 
 def thousand_phrase(million, thousand, hundreds, text):
+    test_million = list(filter(lambda t: t != ' ', million))
+    if len(test_million) == 0 and thousand[0] == ' ' and thousand[1] == ' ' and thousand[2] == 'um':
+        return thousand_text
     if len(text):
         return text + " " + thousand_text
     return text
@@ -102,67 +105,3 @@ def cents_phrase(cents, text):
     else:
         text += " " + cents_text[1]
         return text
-
-
-"""
-def convert_million_phrase(million, thousand, hundreds, text):
-    test_million = list(filter(lambda t: t != ' ', million))
-
-    if million[0] == " " and million[1] == " " and million[2] == "um":
-        text += " " + millions[0]
-    elif len(test_million) > 0:
-        text += " " + millions[1]
-    else:
-        return text
-
-    test_thousand = list(filter(lambda th: th != ' ', thousand))
-    test_hundred = list(filter(lambda t: t != ' ', hundreds))
-    if len(test_hundred) == 0 and len(test_thousand) == 0:
-        text += " de"
-    return text
-
-
-def convert_thousand_phrase(thousand, hundreds, text):
-    test_thousand = list(filter(lambda th: th != ' ', thousand))
-    if len(test_thousand) > 0:
-        return text + " " + thousand_text
-    elif len(test_thousand) < 0:
-        return text + "e"
-    else:
-        return text
-
-
-def convert_hundred_phrase(million, thousand, hundreds, text):
-    test_thousand = list(filter(lambda th: th != ' ', thousand))
-    test_million = list(filter(lambda t: t != ' ', million))
-    test_hundred = list(filter(lambda t: t != ' ', hundreds))
-
-    if hundreds[0] == ' ' and hundreds[1] == ' ' and hundreds[2] == 'um':
-        if len(test_million) == 0 and len(test_thousand) == 0:
-            text += " " + money[0]
-        else:
-            text += " " + money[1]
-    elif hundreds[0] == ' ' and hundreds[1] == ' ' and hundreds[2] == ' ':
-        if len(test_million) == 0 and len(test_thousand) == 0:
-            text += "zero" + " " + money[1]
-        else:
-            text += " " + money[1]
-    elif len(text) == 0:
-        text += money[1]
-    else:
-        text += " " + money[1]
-    return text
-
-
-def convert_cents_phrase(cents, text):
-    test_cents = list(filter(lambda c: c != ' ', cents))
-    if len(test_cents) == 0:
-        #text += " zero centavos"
-        return text
-    elif cents[1] == " " and cents[2] == "um":
-        text += " " + cents_text[0]
-        return text
-    else:
-        text += " " + cents_text[1]
-        return text
-"""""
