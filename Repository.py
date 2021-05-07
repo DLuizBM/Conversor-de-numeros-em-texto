@@ -1,4 +1,4 @@
-cents = ('centavo', 'centavos')
+cents_text = ('centavo', 'centavos')
 money = ('real', 'reais')
 
 unit = [(1, 'um'), (2, 'dois'), (3, 'três'),
@@ -18,6 +18,6 @@ hundred = [(1, 'cento', 'cem'), (2, 'duzentos'), (3, 'trezentos'),
            (4, 'quatrocentos'), (5, 'quinhentos'), (6, 'seiscentos'),
            (7, 'setecentos'), (8, 'oitocentos'), (9, 'novecentos')]
 
-thousand = 'mil'
+thousand_text = 'mil'
 millions = ('milhão', 'milhões')
 
